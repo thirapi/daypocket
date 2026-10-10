@@ -1,0 +1,1 @@
+- [Calendar reference rights](calendar-reference-rights.md) — the source is inspiration only; keep its brand identity and assets out of this app.

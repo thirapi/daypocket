@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Pocket Calendar"
+description = "A responsive calendar and daily memory-capsule experience inspired by a public design reference, with original neutral branding and local interactions."
+version = "1.0.0"
+id = "artifacts/pocket-calendar"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23409
+
+[services.development]
+run = "pnpm --filter @workspace/pocket-calendar run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pocket-calendar", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/pocket-calendar/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23409"
+BASE_PATH = "/"
