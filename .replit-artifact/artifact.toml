@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Pocket Calendar"
+description = "A responsive calendar and daily memory-capsule experience inspired by a public design reference, with original neutral branding and local interactions."
+version = "1.0.0"
+id = "daypocket-app"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23409
+
+[services.development]
+run = "npm run dev"
+
+[services.production]
+build = [ "npm", "run", "build" ]
+serve = "static"
+publicDir = "dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23409"
+BASE_PATH = "/"
